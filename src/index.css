@@ -11,3 +11,10 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.saludo{
+  color: #0741AD;
+  margin-top: 20px;
+  font-size: 20px;
+  text-align: center;
+}
