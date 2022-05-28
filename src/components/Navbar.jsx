@@ -28,11 +28,6 @@ export default function Navbar() {
                     <li className="nav-item">
                         <CartWidget items={1}/>
                     </li>
-                    <li className="nav-item">
-                        <a href="">
-                            <span>1</span>
-                        </a>
-                    </li>
                 </ul>
             </div>
         </div>
