@@ -13,8 +13,8 @@ function App() {
   return (
     <>
     <Navbar/>
-    <ItemListContainer greeting={"Bienvenido a la mejor página de camisetas del mundo, por ahora no tenemos ninguna :P"}/> 
     <ItemCount inicial={1} stock={7} onAdd={onAdd}/>
+    <ItemListContainer greeting={"Bienvenido a la mejor página de camisetas del mundo, por ahora tenemos unas pocas :P"}/> 
     </>
    );
 }
