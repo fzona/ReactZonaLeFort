@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
-import ItemList from "./ItemList";
+import { Button, Card } from "react-bootstrap";
+import ItemDetail from "./ItemDetail";
 
-export default function ItemListContainer({ greeting }) {
+export default function ItemDetailContainer() {
   const [camisetas, setCamisetas] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
@@ -15,25 +16,6 @@ export default function ItemListContainer({ greeting }) {
             club: "River",
             monto: "$100",
             imagen: "/imagenes/River.jpg",
-          },
-          { id: 2, club: "Boca", monto: "$100", imagen: "/imagenes/Boca.jpg" },
-          {
-            id: 3,
-            club: "Velez",
-            monto: "$100",
-            imagen: "/imagenes/Velez.jpg",
-          },
-          {
-            id: 4,
-            club: "Independiente",
-            monto: "$100",
-            imagen: "/imagenes/Independiente.jpg",
-          },
-          {
-            id: 5,
-            club: "Racing",
-            monto: "$100",
-            imagen: "/imagenes/Racing.jpg",
           },
         ]);
       }, 2000);
@@ -51,13 +33,11 @@ export default function ItemListContainer({ greeting }) {
       });
   }, []);
 
-  console.log(camisetas.id);
   return (
     <>
-      <h1 className="saludo">{greeting}</h1>
       <h1>{loading && "Cargando..."}</h1>
       <h1>{error && "Hubo un Error"}</h1>
-      <h1>{camisetas && <ItemList camisetas={camisetas} />}</h1>
+      <h1>{camisetas && <ItemDetail camisetas={camisetas} />}</h1>
     </>
   );
 }
