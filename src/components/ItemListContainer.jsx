@@ -3,7 +3,7 @@ import ItemList from "./ItemList";
 import { useParams } from "react-router-dom";
 import { useState } from "react";
 
-export default function ItemListContainer({}) {
+export default function ItemListContainer() {
   const { id } = useParams();
   const [camisetas, setCamisetas] = useState([]);
 
@@ -96,9 +96,9 @@ export default function ItemListContainer({}) {
 
   return (
     <>
-      <h1>
+      <div>
         <ItemList camisetas={camisetas} />
-      </h1>
+      </div>
     </>
   );
 }

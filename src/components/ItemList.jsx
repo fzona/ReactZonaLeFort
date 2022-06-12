@@ -1,10 +1,12 @@
-import React from 'react'
-import Item from './Item'
+import React from "react";
+import Item from "./Item";
 
-export default function ItemList({camisetas}) {
+export default function ItemList({ camisetas }) {
   return (
-        <div>
-            {camisetas.map((camiseta) => (<Item key={camiseta.id} camisetas={camiseta}/>))}
-        </div>
-  )
+    <div className="camisetas">
+      {camisetas.map((camiseta) => (
+        <Item key={camiseta.id} camisetas={camiseta} />
+      ))}
+    </div>
+  );
 }
