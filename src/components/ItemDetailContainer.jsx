@@ -1,11 +1,10 @@
-import React, { useEffect } from "react";
-import ItemList from "./ItemList";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { useState } from "react";
+import ItemDetail from "./ItemDetail";
 
-export default function ItemListContainer({}) {
+export default function ItemDetailContainer() {
   const { id } = useParams();
-  const [camisetas, setCamisetas] = useState([]);
+  const [producto, setProducto] = useState({});
 
   const productos = [
     {
@@ -81,24 +80,13 @@ export default function ItemListContainer({}) {
   ];
 
   useEffect(() => {
-    if (id === "nacional") {
-      setCamisetas(
-        productos.filter((camiseta) => camiseta.categoría === "nacional")
-      );
-    } else if (id === "internacional") {
-      setCamisetas(
-        productos.filter((camiseta) => camiseta.categoría === "internacional")
-      );
-    } else {
-      setCamisetas(productos);
-    }
+    const producto = productos.find((producto) => producto.id === Number(id));
+    setProducto(producto);
   }, [id]);
 
   return (
-    <>
-      <h1>
-        <ItemList camisetas={camisetas} />
-      </h1>
-    </>
+    <div>
+      <ItemDetail producto={producto} />
+    </div>
   );
 }

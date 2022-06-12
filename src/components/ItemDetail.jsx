@@ -1,9 +1,8 @@
 import React from "react";
 import { Button, Card } from "react-bootstrap";
-import { Link } from "react-router-dom";
 
-export default function Item({ camisetas }) {
-  const { club, monto, imagen, id } = camisetas;
+export default function ItemDetail({ producto }) {
+  const { club, monto, imagen } = producto;
 
   return (
     <Card style={{ width: "18rem" }}>
@@ -11,9 +10,7 @@ export default function Item({ camisetas }) {
       <Card.Body>
         <Card.Title>Camiseta oficial de {club}</Card.Title>
         <Card.Text>{monto}</Card.Text>
-        <Link to={`/item/${id}`}>
-          <Button variant="primary">Ver más detalle del producto</Button>
-        </Link>
+        <Button variant="primary">Agregar al carrito</Button>
       </Card.Body>
     </Card>
   );

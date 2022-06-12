@@ -1,12 +1,13 @@
-import React from 'react';
+import React from "react";
 import { BsFillCartFill } from "react-icons/bs";
 
-export default function CartWidget({items}) {
+export default function CartWidget({ items }) {
   return (
     <>
-    <a href=""><BsFillCartFill size={30}/>
-    {items}
-    </a>
+      <a href="">
+        <BsFillCartFill size={30} />
+        {items}
+      </a>
     </>
-  )
+  );
 }

@@ -1,22 +1,22 @@
-import './App.css';
-import ItemCount from './components/ItemCount';
-import ItemListContainer from './components/ItemListContainer';
-import Navbar from './components/Navbar';
-
+import "./App.css";
+import ItemListContainer from "./components/ItemListContainer";
+import Navbar from "./components/Navbar";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import ItemDetailContainer from "./components/ItemDetailContainer";
 
 function App() {
-    const onAdd = (count) => {
-    alert (`Agregaste ${count} productos a tu carrito`);
-  }
-
-
   return (
     <>
-    <Navbar/>
-    <ItemCount inicial={1} stock={7} onAdd={onAdd}/>
-    <ItemListContainer greeting={"Bienvenido a la mejor página de camisetas del mundo, por ahora tenemos unas pocas :P"}/> 
+      <Navbar />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<ItemListContainer />} />
+          <Route path="/category/:id" element={<ItemListContainer />} />
+          <Route path="/item/:id" element={<ItemDetailContainer />} />
+        </Routes>
+      </BrowserRouter>
     </>
-   );
+  );
 }
 
 export default App;
