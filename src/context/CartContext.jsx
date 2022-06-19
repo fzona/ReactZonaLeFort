@@ -25,7 +25,6 @@ export default function CartContext({ children }) {
   const emptyCart = () => {
     setCart([]);
   };
-
   const removeItem = (id) => {
     return cart.filter((item) => item.id !== id);
   };
@@ -36,7 +35,6 @@ export default function CartContext({ children }) {
   const getItemPrice = () => {
     return cart.reduce((total, item) => total + item.cantidad * item.monto, 0);
   };
-
   return (
     <MiContexto.Provider
       value={
