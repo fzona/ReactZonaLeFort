@@ -13,6 +13,9 @@ export default function ItemDetailContainer() {
       monto: "$100",
       imagen: "/imagenes/River.jpg",
       categoría: "nacional",
+      stock: 10,
+      descripcion:
+        "Lleva los colores que más alegrías te dieron en la Camiseta adidas River Plate Home 21/22. Está elaborada en 100% poliéster y con un calce regular para brindarte mayor comodidad y poder utilizarla en cualquier ocasión.",
     },
     {
       id: 2,
@@ -20,6 +23,9 @@ export default function ItemDetailContainer() {
       monto: "$100",
       imagen: "/imagenes/Boca.jpg",
       categoría: "nacional",
+      stock: 10,
+      descripcion:
+        "Lleva los colores que más alegrías te dieron en la Camiseta adidas Boca Juniors Home 21/22. Está elaborada en 100% poliéster y con un calce regular para brindarte mayor comodidad y poder utilizarla en cualquier ocasión.",
     },
     {
       id: 3,
@@ -27,6 +33,9 @@ export default function ItemDetailContainer() {
       monto: "$100",
       imagen: "/imagenes/Velez.jpg",
       categoría: "nacional",
+      stock: 10,
+      descripcion:
+        "Lleva los colores que más alegrías te dieron en la Camiseta adidas Velez Sarsfield Home 21/22. Está elaborada en 100% poliéster y con un calce regular para brindarte mayor comodidad y poder utilizarla en cualquier ocasión.",
     },
     {
       id: 4,
@@ -34,6 +43,9 @@ export default function ItemDetailContainer() {
       monto: "$100",
       imagen: "/imagenes/Independiente.jpg",
       categoría: "nacional",
+      stock: 10,
+      descripcion:
+        "Lleva los colores que más alegrías te dieron en la Camiseta adidas Independiente Home 21/22. Está elaborada en 100% poliéster y con un calce regular para brindarte mayor comodidad y poder utilizarla en cualquier ocasión.",
     },
     {
       id: 5,
@@ -41,6 +53,9 @@ export default function ItemDetailContainer() {
       monto: "$100",
       imagen: "/imagenes/Racing.jpg",
       categoría: "nacional",
+      stock: 10,
+      descripcion:
+        "Lleva los colores que más alegrías te dieron en la Camiseta adidas Racing Home 21/22. Está elaborada en 100% poliéster y con un calce regular para brindarte mayor comodidad y poder utilizarla en cualquier ocasión.",
     },
     {
       id: 6,
@@ -48,6 +63,9 @@ export default function ItemDetailContainer() {
       monto: "$100",
       imagen: "/imagenes/Barcelona.jpg",
       categoría: "internacional",
+      stock: 10,
+      descripcion:
+        "Lleva los colores que más alegrías te dieron en la Camiseta adidas Barcelona Home 21/22. Está elaborada en 100% poliéster y con un calce regular para brindarte mayor comodidad y poder utilizarla en cualquier ocasión.",
     },
     {
       id: 7,
@@ -55,6 +73,9 @@ export default function ItemDetailContainer() {
       monto: "$100",
       imagen: "/imagenes/RealMadrid.jpg",
       categoría: "internacional",
+      stock: 10,
+      descripcion:
+        "Lleva los colores que más alegrías te dieron en la Camiseta adidas Real Madrid Home 21/22. Está elaborada en 100% poliéster y con un calce regular para brindarte mayor comodidad y poder utilizarla en cualquier ocasión.",
     },
     {
       id: 8,
@@ -62,6 +83,9 @@ export default function ItemDetailContainer() {
       monto: "$100",
       imagen: "/imagenes/Liverpool.jpg",
       categoría: "internacional",
+      stock: 10,
+      descripcion:
+        "Lleva los colores que más alegrías te dieron en la Camiseta adidas Liverpool Home 21/22. Está elaborada en 100% poliéster y con un calce regular para brindarte mayor comodidad y poder utilizarla en cualquier ocasión.",
     },
     {
       id: 9,
@@ -69,6 +93,9 @@ export default function ItemDetailContainer() {
       monto: "$100",
       imagen: "/imagenes/MUnited.jpg",
       categoría: "internacional",
+      stock: 10,
+      descripcion:
+        "Lleva los colores que más alegrías te dieron en la Camiseta adidas Manchester United Home 21/22. Está elaborada en 100% poliéster y con un calce regular para brindarte mayor comodidad y poder utilizarla en cualquier ocasión.",
     },
     {
       id: 10,
@@ -76,6 +103,9 @@ export default function ItemDetailContainer() {
       monto: "$100",
       imagen: "/imagenes/PSG.jpg",
       categoría: "internacional",
+      stock: 10,
+      descripcion:
+        "Lleva los colores que más alegrías te dieron en la Camiseta adidas PSG Home 21/22. Está elaborada en 100% poliéster y con un calce regular para brindarte mayor comodidad y poder utilizarla en cualquier ocasión.",
     },
   ];
 
@@ -85,7 +115,7 @@ export default function ItemDetailContainer() {
   }, [id]);
 
   return (
-    <div>
+    <div className="detalleProducto">
       <ItemDetail producto={producto} />
     </div>
   );
