@@ -8,13 +8,13 @@ export default function ItemDetail({ producto }) {
   const { club, monto, imagen, stock, descripcion, id } = producto;
   const [mostrarItemCount, setMostrarItemCount] = useState(true);
 
-  const [isInCart, addItem] = useContext(MiContexto);
+  const { isInCart, addItem } = useContext(MiContexto);
 
   const onAdd = (cantidad) => {
     alert("Se agregó al carrito: " + cantidad);
     setMostrarItemCount(false);
     isInCart(id);
-    addItem(id, cantidad);
+    addItem(producto, cantidad);
   };
 
   return (

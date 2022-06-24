@@ -37,15 +37,15 @@ export default function CartContext({ children }) {
   };
   return (
     <MiContexto.Provider
-      value={
-        (isInCart,
+      value={{
+        isInCart,
         addItem,
         emptyCart,
         removeItem,
         getItemPrice,
         getItemQty,
-        cart)
-      }
+        cart,
+      }}
     >
       {children}
     </MiContexto.Provider>
