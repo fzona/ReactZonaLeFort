@@ -19,20 +19,34 @@ export default function Cart() {
         <div className="cart-items">
           <ul>
             {cart.map((item) => (
-              <li key={item.id}>
-                {" "}
-                ♠ {item.club} - $ {item.precio} x {item.cantidad} = ${" "}
+              <li key={item.id} className="cart-item">
+                <img src={item.imagen} className="cart-imagen" />
+                Camiseta de {item.club} - $ {item.precio} x {item.cantidad} = ${" "}
                 {item.cantidad * item.precio}{" "}
-                <button onClick={() => decreaseQuantity(item)}>-</button>
-                <button onClick={() => increaseQuantity(item)}>+</button>
-                <button onClick={() => removeItem(item.id)}>X</button>
+                <button
+                  onClick={() => decreaseQuantity(item)}
+                  className="cart-btn"
+                >
+                  -
+                </button>
+                <button
+                  onClick={() => increaseQuantity(item)}
+                  className="cart-btn"
+                >
+                  +
+                </button>
+                <button
+                  onClick={() => removeItem(item.id)}
+                  className="cart-btn"
+                >
+                  X
+                </button>
               </li>
             ))}
           </ul>
           <h3>Total = $ {getItemPrice()}</h3>
           <Link to="">
-            {" "}
-            <button>Finalizar compra</button>{" "}
+            <button className="cart-btn-pay">Finalizar compra</button>
           </Link>
           <button onClick={emptyCart}>Vaciar carrito</button>
         </div>
