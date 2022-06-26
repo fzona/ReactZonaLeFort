@@ -1,5 +1,4 @@
-import { toBeInTheDOM } from "@testing-library/jest-dom/dist/matchers";
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { MiContexto } from "../context/CartContext";
 
@@ -22,8 +21,8 @@ export default function Cart() {
             {cart.map((item) => (
               <li key={item.id}>
                 {" "}
-                ♠ {item.club} - $ {item.monto} x {item.cantidad} = ${" "}
-                {item.cantidad * item.monto}{" "}
+                ♠ {item.club} - $ {item.precio} x {item.cantidad} = ${" "}
+                {item.cantidad * item.precio}{" "}
                 <button onClick={() => decreaseQuantity(item)}>-</button>
                 <button onClick={() => increaseQuantity(item)}>+</button>
                 <button onClick={() => removeItem(item.id)}>X</button>
@@ -31,7 +30,7 @@ export default function Cart() {
             ))}
           </ul>
           <h3>Total = $ {getItemPrice()}</h3>
-          <Link to="/form">
+          <Link to="">
             {" "}
             <button>Finalizar compra</button>{" "}
           </Link>

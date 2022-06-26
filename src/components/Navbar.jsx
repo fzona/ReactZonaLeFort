@@ -1,8 +1,8 @@
-import React, { useContext } from "react";
-import logo from "../assets/Logo.png";
-import CartWidget from "./CartWidget";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import logo from "../assets/Logo.png";
 import { MiContexto } from "../context/CartContext";
+import CartWidget from "./CartWidget";
 
 export default function Navbar() {
   const { getItemQty } = useContext(MiContexto);

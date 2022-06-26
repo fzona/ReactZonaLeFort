@@ -1,11 +1,11 @@
-import React, { useContext, useState } from "react";
+import { useContext, useState } from "react";
 import { Button, Card } from "react-bootstrap";
-import ItemCount from "./ItemCount";
 import { Link } from "react-router-dom";
 import { MiContexto } from "../context/CartContext";
+import ItemCount from "./ItemCount";
 
 export default function ItemDetail({ producto }) {
-  const { club, monto, imagen, stock, descripcion, id } = producto;
+  const { club, precio, imagen, stock, descripcion, id } = producto;
   const [mostrarItemCount, setMostrarItemCount] = useState(true);
 
   const { isInCart, addItem } = useContext(MiContexto);
@@ -23,7 +23,7 @@ export default function ItemDetail({ producto }) {
         <Card.Img variant="top" src={imagen} />
         <Card.Body>
           <Card.Title>Camiseta oficial de {club}</Card.Title>
-          <Card.Text>{monto}</Card.Text>
+          <Card.Text>{precio}</Card.Text>
           <p className="descripcion">{descripcion}</p>
         </Card.Body>
       </Card>

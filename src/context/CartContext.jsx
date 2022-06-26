@@ -55,7 +55,7 @@ export default function CartContext({ children }) {
   };
 
   const getItemPrice = (item) => {
-    return cart.reduce((total, item) => total + item.cantidad * item.monto, 0);
+    return cart.reduce((total, item) => total + item.cantidad * item.precio, 0);
   };
 
   return (

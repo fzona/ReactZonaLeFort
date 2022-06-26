@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { BsFillCartFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { MiContexto } from "../context/CartContext";
