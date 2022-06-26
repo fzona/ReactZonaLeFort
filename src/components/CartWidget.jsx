@@ -1,13 +1,16 @@
 import React, { useContext } from "react";
 import { BsFillCartFill } from "react-icons/bs";
+import { Link } from "react-router-dom";
+import { MiContexto } from "../context/CartContext";
 
-export default function CartWidget({ items }) {
+export default function CartWidget({}) {
+  const { getItemQty } = useContext(MiContexto);
   return (
     <>
-      <a href="">
+      <Link to="/cart">
         <BsFillCartFill size={30} />
-        {items}
-      </a>
+        {getItemQty()}
+      </Link>
     </>
   );
 }

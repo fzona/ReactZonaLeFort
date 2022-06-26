@@ -5,15 +5,15 @@ export default function ItemCount({ inicial, stock, onAdd }) {
   const [count, setCount] = useState(inicial);
 
   const sumar = () => {
-    count < stock
-      ? setCount(count + 1)
-      : alert("No puedes agregar más productos");
+    if (count < stock) {
+      setCount(count + 1);
+    }
   };
 
   const restar = () => {
-    count > inicial
-      ? setCount(count - 1)
-      : alert("No puedes quitar más productos");
+    if (count > inicial) {
+      setCount(count - 1);
+    }
   };
 
   return (

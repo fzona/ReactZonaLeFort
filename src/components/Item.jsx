@@ -10,7 +10,7 @@ export default function Item({ camisetas }) {
       <Card.Img variant="top" src={imagen} />
       <Card.Body>
         <Card.Title>Camiseta oficial de {club}</Card.Title>
-        <Card.Text>{monto}</Card.Text>
+        <Card.Text>${monto}</Card.Text>
         <Link to={`/item/${id}`}>
           <Button variant="primary">Ver más detalle del producto</Button>
         </Link>

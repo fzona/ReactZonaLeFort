@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import logo from "../assets/Logo.png";
 import CartWidget from "./CartWidget";
 import { Link } from "react-router-dom";
+import { MiContexto } from "../context/CartContext";
 
 export default function Navbar() {
+  const { getItemQty } = useContext(MiContexto);
+
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark static-top">
@@ -42,7 +45,7 @@ export default function Navbar() {
             </ul>
             <ul className="navbar-nav ml-auto">
               <li className="nav-item">
-                <CartWidget items={1} />
+                {getItemQty() > 0 ? <CartWidget /> : null}
               </li>
             </ul>
           </div>

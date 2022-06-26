@@ -10,7 +10,7 @@ export default function ItemDetailContainer() {
     {
       id: 1,
       club: "River",
-      monto: "$100",
+      monto: 100,
       imagen: "/imagenes/River.jpg",
       categoría: "nacional",
       stock: 10,
@@ -20,7 +20,7 @@ export default function ItemDetailContainer() {
     {
       id: 2,
       club: "Boca",
-      monto: "$100",
+      monto: 100,
       imagen: "/imagenes/Boca.jpg",
       categoría: "nacional",
       stock: 10,
@@ -30,7 +30,7 @@ export default function ItemDetailContainer() {
     {
       id: 3,
       club: "Velez",
-      monto: "$100",
+      monto: 100,
       imagen: "/imagenes/Velez.jpg",
       categoría: "nacional",
       stock: 10,
@@ -40,7 +40,7 @@ export default function ItemDetailContainer() {
     {
       id: 4,
       club: "Independiente",
-      monto: "$100",
+      monto: 100,
       imagen: "/imagenes/Independiente.jpg",
       categoría: "nacional",
       stock: 10,
@@ -50,7 +50,7 @@ export default function ItemDetailContainer() {
     {
       id: 5,
       club: "Racing",
-      monto: "$100",
+      monto: 100,
       imagen: "/imagenes/Racing.jpg",
       categoría: "nacional",
       stock: 10,
@@ -60,7 +60,7 @@ export default function ItemDetailContainer() {
     {
       id: 6,
       club: "Barcelona",
-      monto: "$100",
+      monto: 100,
       imagen: "/imagenes/Barcelona.jpg",
       categoría: "internacional",
       stock: 10,
@@ -70,7 +70,7 @@ export default function ItemDetailContainer() {
     {
       id: 7,
       club: "Real Madrid",
-      monto: "$100",
+      monto: 100,
       imagen: "/imagenes/RealMadrid.jpg",
       categoría: "internacional",
       stock: 10,
@@ -80,7 +80,7 @@ export default function ItemDetailContainer() {
     {
       id: 8,
       club: "Liverpool",
-      monto: "$100",
+      monto: 100,
       imagen: "/imagenes/Liverpool.jpg",
       categoría: "internacional",
       stock: 10,
@@ -90,7 +90,7 @@ export default function ItemDetailContainer() {
     {
       id: 9,
       club: "Manchester United",
-      monto: "$100",
+      monto: 100,
       imagen: "/imagenes/MUnited.jpg",
       categoría: "internacional",
       stock: 10,
@@ -100,7 +100,7 @@ export default function ItemDetailContainer() {
     {
       id: 10,
       club: "PSG",
-      monto: "$100",
+      monto: 100,
       imagen: "/imagenes/PSG.jpg",
       categoría: "internacional",
       stock: 10,

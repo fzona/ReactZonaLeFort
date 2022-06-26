@@ -15,26 +15,49 @@ export default function CartContext({ children }) {
     };
     if (isInCart(item.id)) {
       const findItem = cart.find((item) => item.id === newItem.id);
-      findItem.cantidad += newItem.cantidad;
-      setCart([...cart]);
+      if (findItem.cantidad < item.stock) {
+        findItem.cantidad += newItem.cantidad;
+        setCart([...cart]);
+      }
     } else {
-      setCart([...cart, item]);
+      setCart([...cart, newItem]);
     }
+  };
+
+  const decreaseQuantity = (item) => {
+    const newItems = cart.map((i) => {
+      if (i.id === item.id && i.cantidad > 1) {
+        return { ...i, cantidad: i.cantidad - 1 };
+      }
+      return i;
+    });
+    setCart(newItems);
+  };
+
+  const increaseQuantity = (item) => {
+    const newItems = cart.map((i) => {
+      if (i.id === item.id && i.cantidad < item.stock) {
+        return { ...i, cantidad: i.cantidad + 1 };
+      }
+      return i;
+    });
+    setCart(newItems);
   };
 
   const emptyCart = () => {
     setCart([]);
   };
   const removeItem = (id) => {
-    return cart.filter((item) => item.id !== id);
+    setCart(cart.filter((item) => item.id !== id));
   };
   const getItemQty = () => {
     return cart.reduce((total, item) => total + item.cantidad, 0);
   };
 
-  const getItemPrice = () => {
+  const getItemPrice = (item) => {
     return cart.reduce((total, item) => total + item.cantidad * item.monto, 0);
   };
+
   return (
     <MiContexto.Provider
       value={{
@@ -44,6 +67,8 @@ export default function CartContext({ children }) {
         removeItem,
         getItemPrice,
         getItemQty,
+        decreaseQuantity,
+        increaseQuantity,
         cart,
       }}
     >
