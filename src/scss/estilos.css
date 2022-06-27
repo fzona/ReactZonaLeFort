@@ -327,6 +327,7 @@ img {
   color: white;
   background: #3692c4;
   font-weight: bold;
+  border-color: white;
   border-radius: 50px;
   float: right;
   text-align: right;

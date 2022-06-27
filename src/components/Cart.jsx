@@ -17,9 +17,11 @@ export default function Cart() {
       <div className="wrap cf">
         <div className="heading cf">
           <h1>Mi Carrito</h1>
-          <Link to="/" className="continue">
-            Continuar comprando
-          </Link>
+          {cart.length > 0 ? (
+            <Link to="/" className="continue">
+              Continuar comprando
+            </Link>
+          ) : null}
         </div>
         {cart.length > 0 ? (
           <>
