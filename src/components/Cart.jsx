@@ -13,51 +13,86 @@ export default function Cart() {
   } = useContext(MiContexto);
 
   return (
-    <div>
-      <h2 className="cart-title">Tu carrito</h2>
-      {cart.length > 0 ? (
-        <div className="cart-items">
-          <ul>
-            {cart.map((item) => (
-              <li key={item.id} className="cart-item">
-                <img src={item.imagen} className="cart-imagen" />
-                Camiseta de {item.club} - $ {item.precio} x {item.cantidad} = ${" "}
-                {item.cantidad * item.precio}{" "}
-                <button
-                  onClick={() => decreaseQuantity(item)}
-                  className="cart-btn"
-                >
-                  -
-                </button>
-                <button
-                  onClick={() => increaseQuantity(item)}
-                  className="cart-btn"
-                >
-                  +
-                </button>
-                <button
-                  onClick={() => removeItem(item.id)}
-                  className="cart-btn"
-                >
-                  X
-                </button>
-              </li>
-            ))}
-          </ul>
-          <h3>Total = $ {getItemPrice()}</h3>
-          <Link to="">
-            <button className="cart-btn-pay">Finalizar compra</button>
-          </Link>
-          <button onClick={emptyCart}>Vaciar carrito</button>
-        </div>
-      ) : (
-        <div className="cart-items">
-          <h3>No hay productos en el carrito</h3>
-          <Link to="/">
-            <button>¡Quiero ver productos!</button>
+    <>
+      <div className="wrap cf">
+        <div className="heading cf">
+          <h1>Mi Carrito</h1>
+          <Link to="/" className="continue">
+            Continuar comprando
           </Link>
         </div>
-      )}
-    </div>
+        {cart.length > 0 ? (
+          <>
+            <div className="cart">
+              <ul className="cartWrap">
+                <li className="items odd">
+                  {cart.map((item) => (
+                    <div key={item.id} className="infoWrap">
+                      <div className="cartSection">
+                        <img src={item.imagen} alt="" className="itemImg" />
+                        <h3>CAMISETA DE {item.club}</h3>
+                        <p>
+                          <button
+                            onClick={() => increaseQuantity(item)}
+                            className="add"
+                          >
+                            +
+                          </button>
+                          {item.cantidad}
+                          <button
+                            onClick={() => decreaseQuantity(item)}
+                            className="decrease"
+                          >
+                            -
+                          </button>{" "}
+                          x ${item.precio}
+                        </p>
+                        <p className="stockStatus"> En Stock</p>
+                      </div>
+                      <div className="prodTotal cartSection">
+                        <p>${item.cantidad * item.precio}</p>
+                      </div>
+                      <div className="cartSection removeWrap">
+                        <button
+                          onClick={() => removeItem(item.id)}
+                          className="remove"
+                        >
+                          x
+                        </button>
+                      </div>
+                    </div>
+                  ))}
+                </li>
+              </ul>
+            </div>
+            <div className="subtotal cf">
+              <ul>
+                <li className="totalRow final">
+                  <span className="label">Total</span>
+                  <span className="value">${getItemPrice()}</span>
+                </li>
+                <li className="totalRow">
+                  <button onClick={() => emptyCart()} className="btn-vaciar">
+                    Vaciar carrito
+                  </button>
+                </li>
+                <li className="totalRow">
+                  <Link to="/" className="btn continue">
+                    Finalizar compra
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </>
+        ) : (
+          <div>
+            <h3>No hay productos en el carrito</h3>
+            <Link to="/" className="btn continue">
+              ¡Quiero ver productos!
+            </Link>
+          </div>
+        )}
+      </div>
+    </>
   );
 }

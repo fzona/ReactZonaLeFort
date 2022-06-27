@@ -6,6 +6,7 @@ import ItemListContainer from "./components/ItemListContainer";
 import Navbar from "./components/Navbar";
 import CartContext from "./context/CartContext";
 import { initializeApp } from "firebase/app";
+import "./scss/estilos.scss";
 
 function App() {
   const firebaseConfig = {
