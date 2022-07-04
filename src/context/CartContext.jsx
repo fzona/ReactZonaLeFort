@@ -58,6 +58,11 @@ export default function CartContext({ children }) {
     return cart.reduce((total, item) => total + item.cantidad * item.precio, 0);
   };
 
+  const total = cart.reduce(
+    (acc, item) => acc + item.precio * item.cantidad,
+    0
+  );
+
   return (
     <MiContexto.Provider
       value={{
@@ -70,6 +75,7 @@ export default function CartContext({ children }) {
         decreaseQuantity,
         increaseQuantity,
         cart,
+        total,
       }}
     >
       {children}

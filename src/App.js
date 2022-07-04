@@ -7,6 +7,7 @@ import Navbar from "./components/Navbar";
 import CartContext from "./context/CartContext";
 import { initializeApp } from "firebase/app";
 import "./scss/estilos.scss";
+import Checkout from "./components/Checkout";
 
 function App() {
   const firebaseConfig = {
@@ -30,6 +31,7 @@ function App() {
             <Route path="/category/:id" element={<ItemListContainer />} />
             <Route path="/item/:id" element={<ItemDetailContainer />} />
             <Route path="/cart" element={<Cart />} />
+            <Route path="/checkout" element={<Checkout />} />
           </Routes>
         </BrowserRouter>
       </CartContext>

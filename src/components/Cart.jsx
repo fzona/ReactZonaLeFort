@@ -10,6 +10,7 @@ export default function Cart() {
     decreaseQuantity,
     getItemPrice,
     increaseQuantity,
+    total,
   } = useContext(MiContexto);
 
   return (
@@ -71,7 +72,7 @@ export default function Cart() {
               <ul>
                 <li className="totalRow final">
                   <span className="label">Total</span>
-                  <span className="value">${getItemPrice()}</span>
+                  <span className="value">${total}</span>
                 </li>
                 <li className="totalRow">
                   <button onClick={() => emptyCart()} className="btn-vaciar">
@@ -79,7 +80,7 @@ export default function Cart() {
                   </button>
                 </li>
                 <li className="totalRow">
-                  <Link to="/" className="btn continue">
+                  <Link to="/checkout" className="btn continue">
                     Finalizar compra
                   </Link>
                 </li>
