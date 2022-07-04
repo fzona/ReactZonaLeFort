@@ -1,11 +1,13 @@
 import { useContext, useState } from "react";
 import { MiContexto } from "../context/CartContext";
 import { addDoc, collection, getFirestore } from "firebase/firestore";
+import { Link } from "react-router-dom";
 
 export default function Checkout() {
-  const [nombre, setName] = useState("");
+  const [nombre, setNombre] = useState("");
   const [email, setEmail] = useState("");
   const [cel, setCel] = useState("");
+  const [envio, setEnvio] = useState("");
   const [idCompra, setIdCompra] = useState("");
   const db = getFirestore();
   const ordencollection = collection(db, "ordenes ");
@@ -14,11 +16,10 @@ export default function Checkout() {
 
   function handleClick() {
     const orden = {
-      buyer: { nombre, email, cel },
+      buyer: { nombre, email, cel, envio },
       items: cart,
       total,
     };
-
     addDoc(ordencollection, orden).then(({ id }) => {
       setIdCompra(id);
     });
@@ -26,103 +27,136 @@ export default function Checkout() {
 
   return (
     <>
-    <div>
-      <h1>COMPLETE PARA TERMINAR SU COMPRA</h1>
-      <input
-        onChange={(e) => setName(e.target.value)}
-        type="text"
-        placeholder="Ingrese su nombre"
-      />
-      <input
-        onChange={(e) => setCel(e.target.value)}
-        type="number"
-        placeholder="Ingrese su celular"
-      />
-      <input
-        onChange={(e) => setEmail(e.target.value)}
-        type="email"
-        placeholder="Ingrese su email"
-      />
-      <button onClick={handleClick}>Terminar compra</button>
-    </div>
-    <div class="row ">
-    <div class="col-lg-7 mx-auto">
-      <div class="card mt-2 mx-auto p-4 bg-light">
-          <div class="card-body bg-light">
-     
-          <div class = "container">
-                           <form id="contact-form" role="form">
-
-
-          <div class="controls">
-
-              <div class="row">
-                  <div class="col-md-6">
-                      <div class="form-group">
-                          <label for="form_name">Firstname *</label>
-                          <input id="form_name" type="text" name="name" class="form-control" placeholder="Please enter your firstname *" required="required" data-error="Firstname is required."/>
-                          
-                      </div>
-                  </div>
-                  <div class="col-md-6">
-                      <div class="form-group">
-                          <label for="form_lastname">Lastname *</label>
-                          <input id="form_lastname" type="text" name="surname" class="form-control" placeholder="Please enter your lastname *" required="required" data-error="Lastname is required."/>
-                                                          </div>
-                  </div>
-              </div>
-              <div class="row">
-                  <div class="col-md-6">
-                      <div class="form-group">
-                          <label for="form_email">Email *</label>
-                          <input id="form_email" type="email" name="email" class="form-control" placeholder="Please enter your email *" required="required" data-error="Valid email is required."/>
-                          
-                      </div>
-                  </div>
-                  <div class="col-md-6">
-                      <div class="form-group">
-                          <label for="form_need">Please specify your need *</label>
-                          <select id="form_need" name="need" class="form-control" required="required" data-error="Please specify your need.">
-                              <option value="" selected disabled>--Select Your Issue--</option>
-                              <option >Request Invoice for order</option>
-                              <option >Request order status</option>
-                              <option >Haven't received cashback yet</option>
-                              <option >Other</option>
-                          </select>
-                          
-                      </div>
-                  </div>
-              </div>
-              <div class="row">
-                  <div class="col-md-12">
-                      <div class="form-group">
-                          <label for="form_message">Message *</label>
-                          <textarea id="form_message" name="message" class="form-control" placeholder="Write your message here." rows="4" required="required" data-error="Please, leave us a message."></textarea
-                              >
+      <div className="container">
+        <div className=" text-center mt-5 ">
+          <h1>Por favor ingrese sus datos para terminar la compra</h1>
+        </div>
+        <div className="row ">
+          <div className="col-lg-7 mx-auto">
+            <div className="card mt-2 mx-auto p-4 bg-light">
+              <div className="card-body bg-light">
+                <div className="container">
+                  <form id="contact-form">
+                    <div className="controls">
+                      <div className="row">
+                        <div className="col-md-6">
+                          <div className="form-group">
+                            <label>Firstname *</label>
+                            <input
+                              id="form_name"
+                              type="text"
+                              name="name"
+                              className="form-control"
+                              placeholder="Please enter your firstname *"
+                              required="required"
+                              data-error="Firstname is required."
+                              onChange={(e) => setNombre(e.target.value)}
+                            />
                           </div>
-
+                        </div>
+                        <div className="col-md-6">
+                          <div className="form-group">
+                            <label>Teléfono *</label>
+                            <input
+                              id="form_lastname"
+                              type="text"
+                              name="surname"
+                              className="form-control"
+                              placeholder="Please enter your lastname *"
+                              required="required"
+                              data-error="Lastname is required."
+                              onChange={(e) => setCel(e.target.value)}
+                            />
+                          </div>
+                        </div>
                       </div>
+                      <div className="row">
+                        <div className="col-md-6">
+                          <div className="form-group">
+                            <label>Email *</label>
+                            <input
+                              id="form_email"
+                              type="email"
+                              name="email"
+                              className="form-control"
+                              placeholder="Please enter your email *"
+                              required="required"
+                              data-error="Valid email is required."
+                              onChange={(e) => setEmail(e.target.value)}
+                            />
+                          </div>
+                        </div>
+                        <div className="col-md-6">
+                          <div className="form-group">
+                            <label>Forma de envío *</label>
+                            <select
+                              id="form_need"
+                              name="need"
+                              className="form-control"
+                              required="required"
+                              data-error="Please specify your need."
+                              defaultValue={"default"}
+                              onChange={(e) => setEnvio(e.target.value)}
+                            >
+                              <option value="default" disabled>
+                                --Seleccionar forma de envío--
+                              </option>
+                              <option>Retiro en sucursal</option>
+                              <option>Envío express (1-2 días hábiles)</option>
+                              <option>
+                                Envío a domicilio (3-4 días hábiles)
+                              </option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="row">
+                        <div className="col-md-12">
+                          <div className="form-group">
+                            <label>Artículos</label>
+                            <li className="check lista">
+                              {cart.map((item) => (
+                                <div key={item.id} className="check articulo">
+                                  <div className="cartSection">
+                                    <img
+                                      src={item.imagen}
+                                      alt=""
+                                      className="itemImg"
+                                    />
+                                    <h3>Camiseta de {item.club}</h3>
+                                    <p className="check precio">
+                                      {item.cantidad}x ${item.precio}
+                                    </p>
+                                  </div>
+                                  <div className="check total">
+                                    <p>Total:${total}</p>
+                                  </div>
+                                </div>
+                              ))}
+                            </li>
+                          </div>
+                        </div>
 
-
-                  <div class="col-md-12">
-                      
-                      <input type="submit" class="btn btn-success btn-send  pt-2 btn-block
-                          " value="Send Message" />
-                  
+                        <div className="col-md-12">
+                          <Link to="/confirmacion">
+                            <input
+                              type="submit"
+                              className="btn btn-success btn-send  pt-2 btn-block
+                            "
+                              value="Comprar"
+                              onClick={handleClick}
+                            />
+                          </Link>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
               </div>
-        
-              </div>
-
-
-      </div>
-       </form>
-      </div>
+            </div>
           </div>
-
-
-  </div>
-
-
-  </div>
-  </>);
+        </div>
+      </div>
+    </>
+  );
 }

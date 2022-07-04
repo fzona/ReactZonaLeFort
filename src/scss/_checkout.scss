@@ -1,0 +1,16 @@
+.check{
+    &.lista{
+        list-style: none;
+    }
+    &.precio{
+        font-size: 1.7em;
+    }
+    &.total{
+        font-size: 2em;
+        font-weight: bold;
+        color: #3692c4;
+    }
+}
+.btn-success{
+    background-color: #3692c4;
+}

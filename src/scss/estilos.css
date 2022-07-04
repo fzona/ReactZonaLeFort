@@ -428,4 +428,19 @@ img {
     width: 100%;
     text-align: center;
   }
+}
+.check.lista {
+  list-style: none;
+}
+.check.precio {
+  font-size: 1.7em;
+}
+.check.total {
+  font-size: 2em;
+  font-weight: bold;
+  color: #3692c4;
+}
+
+.btn-success {
+  background-color: #3692c4;
 }/*# sourceMappingURL=estilos.css.map */

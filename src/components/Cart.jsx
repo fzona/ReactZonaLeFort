@@ -33,7 +33,7 @@ export default function Cart() {
                     <div key={item.id} className="infoWrap">
                       <div className="cartSection">
                         <img src={item.imagen} alt="" className="itemImg" />
-                        <h3>CAMISETA DE {item.club}</h3>
+                        <h3>Camiseta de {item.club}</h3>
                         <p>
                           <button
                             onClick={() => increaseQuantity(item)}
