@@ -2,6 +2,8 @@ import React, { createContext, useState } from "react";
 export const MiContexto = createContext({});
 
 export default function CartContext({ children }) {
+  const cartFromLocalStorage = localStorage.getItem("cart") || "[]";
+
   const [cart, setCart] = useState([]);
 
   const isInCart = (id) => {

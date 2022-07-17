@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { MiContexto } from "../context/CartContext";
-import { addDoc, collection, getFirestore } from "firebase/firestore";
+import { addDoc, collection, getFirestore, orderBy } from "firebase/firestore";
 
 export default function Checkout() {
   const [nombre, setNombre] = useState("");
@@ -9,6 +9,8 @@ export default function Checkout() {
   const [envio, setEnvio] = useState("");
   const [idCompra, setIdCompra] = useState("");
   const [show, setShow] = useState(true);
+  const [compra, setCompra] = useState([]);
+  const [totalCompra, setTotalCompra] = useState("");
   const db = getFirestore();
   const ordencollection = collection(db, "ordenes ");
 
@@ -24,6 +26,8 @@ export default function Checkout() {
       setIdCompra(id);
     });
     setShow(false);
+    setCompra(orden.items);
+    setTotalCompra(orden.total);
     emptyCart();
   }
   const validateEmail = (email) => {
@@ -177,14 +181,30 @@ export default function Checkout() {
         </div>
       ) : (
         <>
-          <h1>Gracias por comprar en Casacas!</h1>
+          <div className="checkout">
+            <h1 className="checkout-title">Gracias por comprar en Casacas!</h1>
 
-          <h3>
-            Su compra se ha realizado con éxito, en breve le contactaremos para
-            confirmar su pedido.
-          </h3>
-          <div>
-            <h4>Su id de pedido es: {idCompra}</h4>
+            <h3 className="checkout-mensaje">
+              Su compra se ha realizado con éxito, en breve lo estaremos
+              contactando para confirmar su pedido.
+            </h3>
+            <div>
+              <h4>Detalle de su compra</h4>
+              <h5>Su id de pedido es: {idCompra}</h5>
+              <div className="checkout-compra">
+                {compra.map((item) => (
+                  <div key={item.id} className="checkout-item">
+                    <img src={item.imagen} alt="" className="checkout-img" />
+                    <div className="checkout-item">
+                      <h3>
+                        Camiseta oficial de {item.club} x {item.cantidad}
+                      </h3>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <h2 className="checkout-total">Precio total : ${totalCompra}</h2>
+            </div>
           </div>
         </>
       )}

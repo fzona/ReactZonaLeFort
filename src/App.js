@@ -4,11 +4,12 @@ import Cart from "./components/Cart";
 import ItemDetailContainer from "./components/ItemDetailContainer";
 import ItemListContainer from "./components/ItemListContainer";
 import Navbar from "./components/Navbar";
-import CartContext from "./context/CartContext";
+import CartContext, { MiContexto } from "./context/CartContext";
 import { initializeApp } from "firebase/app";
 import "./scss/estilos.scss";
 import Checkout from "./components/Checkout";
 import Confirmacion from "./components/Confirmacion";
+import { useContext, useEffect } from "react";
 
 function App() {
   const firebaseConfig = {
