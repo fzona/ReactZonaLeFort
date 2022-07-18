@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Button, Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { MiContexto } from "../context/CartContext";
@@ -10,7 +10,7 @@ export default function ItemDetail({ producto }) {
   const { club, precio, imagen, stock, descripcion, id } = producto;
   const [mostrarItemCount, setMostrarItemCount] = useState(true);
 
-  const { isInCart, addItem } = useContext(MiContexto);
+  const { isInCart, addItem, cart } = useContext(MiContexto);
   const mensaje = () => {
     toast.success("Se agregaron productos al carrito", {
       position: "top-right",
@@ -22,6 +22,10 @@ export default function ItemDetail({ producto }) {
       progress: undefined,
     });
   };
+
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart]);
 
   const onAdd = (cantidad) => {
     mensaje();

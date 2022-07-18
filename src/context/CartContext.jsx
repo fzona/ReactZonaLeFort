@@ -2,9 +2,9 @@ import React, { createContext, useState } from "react";
 export const MiContexto = createContext({});
 
 export default function CartContext({ children }) {
-  const cartFromLocalStorage = localStorage.getItem("cart") || "[]";
+  const cartFromLocalStorage = JSON.parse(localStorage.getItem("cart") || "[]");
 
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState(cartFromLocalStorage);
 
   const isInCart = (id) => {
     return cart.some((item) => item.id === id);

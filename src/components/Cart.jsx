@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { MiContexto } from "../context/CartContext";
 
@@ -12,6 +12,10 @@ export default function Cart() {
     increaseQuantity,
     total,
   } = useContext(MiContexto);
+
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart]);
 
   return (
     <>
