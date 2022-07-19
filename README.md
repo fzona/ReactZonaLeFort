@@ -10,6 +10,8 @@ Hi! My name is Federico Zona Le Fort, and I created this project during my cours
 
 Casacas is an e-commerce site where the user can buy a variety of soccer jerseys from Argentina and international clubs. The project uses Google Firebase to manage the database via the Firestore database.
 
+You can finde the deployed version of the site in this link: https://casacas-bfe4e.web.app
+
 ## Technologies
 
 Project was created using:
