@@ -51,6 +51,10 @@ export default function ItemListContainer() {
   return (
     <>
       <div>
+        <h1 className="ppal-titulo">Bienvenido a Casacas!</h1>
+        <h2 className="ppal-sub">
+          Encontrá todas las camisetas para llenar tu colección
+        </h2>
         <ItemList camisetas={camisetas} />
       </div>
     </>

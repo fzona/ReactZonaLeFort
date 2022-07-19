@@ -46,3 +46,18 @@ code {
   font-weight: bold;
   text-align: center;
 }
+
+.ppal-titulo {
+  text-align: center;
+  color: #3692c4;
+}
+
+.ppal-sub {
+  text-align: center;
+  font-size: 20px;
+  color: #3692c4;
+}
+
+.navbar-nav {
+  flex-direction: row;
+}

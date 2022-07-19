@@ -3,8 +3,8 @@ import "./App.css";
 import Cart from "./components/Cart";
 import ItemDetailContainer from "./components/ItemDetailContainer";
 import ItemListContainer from "./components/ItemListContainer";
-import Navbar from "./components/Navbar";
-import CartContext, { MiContexto } from "./context/CartContext";
+import Navigationbar from "./components/NavigationBar";
+import CartContext from "./context/CartContext";
 import { initializeApp } from "firebase/app";
 import "./scss/estilos.scss";
 import Checkout from "./components/Checkout";
@@ -25,7 +25,7 @@ function App() {
     <>
       <CartContext>
         <BrowserRouter>
-          <Navbar />
+          <Navigationbar />
           <Routes>
             <Route path="/" element={<ItemListContainer />} />
             <Route path="/category/:id" element={<ItemListContainer />} />

@@ -386,7 +386,7 @@ img {
     font-size: 90%;
   }
   .cart .items .cartSection {
-    width: 90%;
+    width: 80%;
     display: block;
     float: left;
   }
@@ -400,11 +400,14 @@ img {
     content: "QTY";
     display: block;
     font-family: "Montserrat", sans-serif;
-    padding: 0.25em;
+    padding: 0.2em;
     font-size: 0.75em;
   }
   .cart .items .cartSection.prodTotal, .cart .items .cartSection.removeWrap {
-    display: none;
+    width: 10%;
+    text-align: center;
+    float: right;
+    font-size: 13px;
   }
   .cart .items .cartSection .itemImg {
     width: 25%;
@@ -661,4 +664,7 @@ img {
 }
 .count-compra:hover {
   background: #5382e7;
+}
+.count-mensaje {
+  color: red;
 }/*# sourceMappingURL=estilos.css.map */

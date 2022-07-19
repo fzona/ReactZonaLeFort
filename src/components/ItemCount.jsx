@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Button } from "react-bootstrap";
 
 export default function ItemCount({ inicial, stock, restante, onAdd }) {
   const [count, setCount] = useState(inicial);

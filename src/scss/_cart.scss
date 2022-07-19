@@ -430,7 +430,7 @@ img {
   .cart {
     .items {
       .cartSection {
-        width: 90%;
+        width: 80%;
         display: block;
         float: left;
         &.qtyWrap {
@@ -442,13 +442,16 @@ img {
             content: "QTY";
             display: block;
             font-family: $fontSans;
-            padding: 0.25em;
+            padding: 0.2em;
             font-size: 0.75em;
           }
         }
         &.prodTotal,
         &.removeWrap {
-          display: none;
+          width: 10%;
+          text-align: center;
+          float: right;
+          font-size: 13px;
         }
         .itemImg {
           width: 25%;

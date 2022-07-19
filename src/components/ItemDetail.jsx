@@ -1,5 +1,4 @@
 import { useContext, useEffect, useState } from "react";
-import { Button, Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { MiContexto } from "../context/CartContext";
 import ItemCount from "./ItemCount";
@@ -41,7 +40,7 @@ export default function ItemDetail({ producto }) {
     <>
       <div className="tabla">
         <div className="imagen">
-          <img variant="top" src={imagen} />
+          <img variant="top" src={imagen} alt="" />
         </div>
         <div className="descripcion">
           <h2 className="descripcion-titulo">Camiseta oficial de {club}</h2>
