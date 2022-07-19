@@ -5,6 +5,7 @@ export default function CartContext({ children }) {
   const cartFromLocalStorage = JSON.parse(localStorage.getItem("cart") || "[]");
 
   const [cart, setCart] = useState(cartFromLocalStorage);
+  const [restante, setRestante] = useState(10);
 
   const isInCart = (id) => {
     return cart.some((item) => item.id === id);

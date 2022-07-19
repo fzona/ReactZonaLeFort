@@ -45,6 +45,10 @@
     }
     &-compra{
         display:flex;
+        justify-content: center;
+        @media screen and (max-width:425px){
+            display:block;
+        }
     }
     &-img{
         width: 100%;
@@ -54,13 +58,18 @@
     &-item{
         text-align: center;
         color:#8c9092;
-        & h4 {
+        width: fit-content;
+        &-leyenda{
             font-size: 30px;
             text-decoration: none;
+            text-align: center;
         }
     }
     &-total{
         text-align: center;
         color:#2897cf;
+    }
+    @media screen and (max-width:768px){
+        margin: 20px 20px 20px 20px;
     }
 }

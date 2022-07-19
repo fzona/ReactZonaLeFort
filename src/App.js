@@ -4,11 +4,10 @@ import Cart from "./components/Cart";
 import ItemDetailContainer from "./components/ItemDetailContainer";
 import ItemListContainer from "./components/ItemListContainer";
 import Navbar from "./components/Navbar";
-import CartContext,
+import CartContext, { MiContexto } from "./context/CartContext";
 import { initializeApp } from "firebase/app";
 import "./scss/estilos.scss";
 import Checkout from "./components/Checkout";
-import Confirmacion from "./components/Confirmacion";
 
 function App() {
   const firebaseConfig = {
@@ -33,7 +32,6 @@ function App() {
             <Route path="/item/:id" element={<ItemDetailContainer />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/checkout" element={<Checkout />} />
-            <Route path="/confirmacion" element={<Confirmacion />} />
           </Routes>
         </BrowserRouter>
       </CartContext>

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Button } from "react-bootstrap";
 
-export default function ItemCount({ inicial, stock, onAdd }) {
+export default function ItemCount({ inicial, stock, restante, onAdd }) {
   const [count, setCount] = useState(inicial);
 
   const sumar = () => {
@@ -19,12 +19,41 @@ export default function ItemCount({ inicial, stock, onAdd }) {
   return (
     <>
       <div className="count">
-        <h2 className="count-number">{count}</h2>
-        <button onClick={sumar}>+</button>
-        <button onClick={restar}>-</button>
-        <Button variant="primary" onClick={() => onAdd(count)}>
-          Agregar al carrito
-        </Button>
+        <div className="count-button">
+          {count === stock ? (
+            <button onClick={sumar} className="count-button-off">
+              +
+            </button>
+          ) : (
+            <button onClick={sumar} className="count-button-on">
+              +
+            </button>
+          )}
+          <h2 className="count-number">{count}</h2>
+          <button onClick={restar} className="count-button-on">
+            -
+          </button>
+        </div>
+        {count === stock ? (
+          <>
+            <button
+              variant="primary"
+              onClick={() => onAdd(count)}
+              className="count-compra"
+            >
+              Agregar al carrito
+            </button>
+            <p className="count-mensaje">No hay más unidades disponibles</p>
+          </>
+        ) : (
+          <button
+            variant="primary"
+            onClick={() => onAdd(count)}
+            className="count-compra"
+          >
+            Agregar al carrito
+          </button>
+        )}
       </div>
     </>
   );

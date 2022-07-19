@@ -8,7 +8,6 @@ export default function Cart() {
     removeItem,
     emptyCart,
     decreaseQuantity,
-    getItemPrice,
     increaseQuantity,
     total,
   } = useContext(MiContexto);

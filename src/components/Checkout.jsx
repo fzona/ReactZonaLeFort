@@ -195,8 +195,8 @@ export default function Checkout() {
                 {compra.map((item) => (
                   <div key={item.id} className="checkout-item">
                     <img src={item.imagen} alt="" className="checkout-img" />
-                    <div className="checkout-item">
-                      <h3>
+                    <div>
+                      <h3 clasNmae="checkout-item-leyenda">
                         Camiseta oficial de {item.club} x {item.cantidad}
                       </h3>
                     </div>
